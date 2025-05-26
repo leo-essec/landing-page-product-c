@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThermoHarvest Sleep System - Revolutionary Climate-Adaptive Sleeping Bag</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a365d 0%, #2d5a87 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #87ceeb;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-20px) translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #87ceeb;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a365d;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        /* Product Showcase */
+        .product-showcase {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(45deg, #1a365d, #2d5a87);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '🏕️';
+            font-size: 8rem;
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .specs-list {
+            list-style: none;
+        }
+
+        .specs-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .specs-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .price-features li {
+            padding: 0.5rem 0;
+        }
+
+        .price-features li::before {
+            content: '✓';
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Metrics Section */
+        .metrics-section {
+            padding: 5rem 0;
+            background: #1a365d;
+            color: white;
+            text-align: center;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .metric-value {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #87ceeb;
+            display: block;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #1a365d;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a365d;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 0.3rem 0;
+        }
+
+        .footer-section ul li a {
+            color: #87ceeb;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+
+        /* Interactive Elements */
+        .interactive-demo {
+            background: linear-gradient(135deg, #2d5a87, #1a365d);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .temp-control {
+            display: inline-block;
+            width: 200px;
+            height: 10px;
+            background: linear-gradient(to right, #3498db, #e74c3c);
+            border-radius: 5px;
+            margin: 1rem;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .temp-indicator {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transition: left 0.3s;
+        }
+
+        .energy-meter {
+            width: 150px;
+            height: 150px;
+            border: 8px solid #87ceeb;
+            border-radius: 50%;
+            margin: 2rem auto;
+            position: relative;
+            background: conic-gradient(#ff6b35 0deg 216deg, #333 216deg 360deg);
+        }
+
+        .energy-meter::before {
+            content: '60%';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">🔥 ThermoHarvest</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#specs">Specifications</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#order" class="cta-button">Order Now</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>ThermoHarvest Sleep System</h1>
+                <p class="hero-subtitle">The world's first sleeping bag that keeps you perfectly comfortable while powering your adventures</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">78%</div>
+                        <p>of campers report poor sleep due to temperature fluctuations</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$2.8B</div>
+                        <p>annual loss in ruined trips from inadequate gear</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">89%</div>
+                        <p>of outdoor enthusiasts worry about device battery life</p>
+                    </div>
+                </div>
+                
+                <a href="#features" class="cta-button">Discover the Solution</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">The Problems We Solve</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">🌡️</div>
+                    <h3>Temperature Fluctuations</h3>
+                    <p>Traditional sleeping bags can't adapt to changing weather conditions, leaving you too hot or too cold throughout the night.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🔋</div>
+                    <h3>Device Battery Anxiety</h3>
+                    <p>Running out of power for essential devices during outdoor adventures creates safety concerns and limits trip duration.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">⚖️</div>
+                    <h3>Heavy, Ineffective Gear</h3>
+                    <p>Current solutions are either too heavy, too expensive, pose fire risks, or simply don't work effectively in real conditions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section" id="features">
+        <div class="container">
+            <h2 class="section-title">Revolutionary Technology</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Smart Climate Control</h3>
+                    <p>Micro-heating strips respond in just 30 seconds, while phase-change materials maintain optimal 68-72°F. AI learns your personal comfort patterns for perfect sleep every night.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Energy Harvesting</h3>
+                    <p>Harvests 15-25W from your body heat overnight, providing enough power to charge 2-3 devices per sleep cycle with zero external power dependency.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏃</div>
+                    <h3>Premium Experience</h3>
+                    <p>40% lighter than comparable systems, completely silent operation, and machine washable for easy maintenance and long-lasting performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo -->
+    <section class="container">
+        <div class="interactive-demo">
+            <h3>Experience the Technology</h3>
+            <p>Temperature Control System</p>
+            <div class="temp-control">
+                <div class="temp-indicator"></div>
+            </div>
+            <p>Slide to see temperature adjustment (30-second response time)</p>
+            
+            <div class="energy-meter"></div>
+            <p>Energy Harvested: 60% overnight capacity</p>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="product-showcase" id="specs">
+        <div class="container">
+            <h2 class="section-title">Technical Specifications</h2>
+            <div class="showcase-grid">
+                <div class="product-image">
+                    <span>ThermoHarvest Sleep System</span>
+                </div>
+                <div>
+                    <h3>Advanced Engineering</h3>
+                    <ul class="specs-list">
+                        <li><span>Temperature Range</span><span>68-72°F (20-22°C)</span></li>
+                        <li><span>Response Time</span><span>30 seconds</span></li>
+                        <li><span>Energy Output</span><span>15-25W overnight</span></li>
+                        <li><span>Weight Reduction</span><span>40% lighter</span></li>
+                        <li><span>Device Charges</span><span>2-3 per night</span></li>
+                        <li><span>Operating Mode</span><span>Silent operation</span></li>
+                        <li><span>Maintenance</span><span>Machine washable</span></li>
+                        <li><span>Patents</span><span>3 granted, 5 pending</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Adventure Package</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Essential</h3>
+                    <div class="price">$899</div>
+                    <ul class="price-features">
+                        <li>ThermoHarvest Sleep System</li>
+                        <li>Basic mobile app</li>
+                        <li>1-year warranty</li>
+                        <li>Free shipping</li>
+                    </ul>
+                    <a href="#order" class="cta-button">Order Now</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3>Premium</h3>
+                    <div class="price">$1,199</div>
+                    <ul class="price-features">
+                        <li>ThermoHarvest Sleep System</li>
+                        <li>Premium app subscription (1 year)</li>
+                        <li>Advanced sleep analytics</li>
+                        <li>Priority support</li>
+                        <li>3-year warranty</li>
+                        <li>Gear optimization features</li>
+                    </ul>
+                    <a href="#order" class="cta-button">Most Popular</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Pro Explorer</h3>
+                    <div class="price">$1,499</div>
+                    <ul class="price-features">
+                        <li>ThermoHarvest Sleep System</li>
+                        <li>Lifetime app subscription</li>
+                        <li>Exclusive beta features</li>
+                        <li>Direct engineer support</li>
+                        <li>5-year warranty</li>
+                        <li>Annual gear upgrade program</li>
+                    </ul>
+                    <a href="#order" class="cta-button">For Professionals</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics-section">
+        <div class="container">
+            <h2 class="section-title">Performance Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-value">65%</span>
+                    <p>Target Gross Margin</p>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">60+</span>
+                    <p>Net Promoter Score</p>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">&lt;3%</span>
+                    <p>Return Rate</p>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">$2,400</span>
+                    <p>Customer Lifetime Value</p>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">35%</span>
+                    <p>Gear Weight Reduction</p>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">$200+</span>
+                    <p>Savings Per Trip</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Adventurers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Game-changer for my monthly camping trips. Perfect temperature all night and my devices never run out of power. Worth every penny!"</p>
+                    <p class="testimonial-author">- Sarah M., Tech Executive & Weekend Warrior</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As an emergency response coordinator, reliable gear is crucial. The ThermoHarvest system has exceeded all our field testing expectations."</p>
+                    <p class="testimonial-author">- Captain James R., Emergency Response Team</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The sleep analytics helped me optimize my recovery. The energy harvesting means I can document my adventures without battery anxiety."</p>
+                    <p class="testimonial-author">- Mike T., Adventure Photographer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ThermoHarvest</h3>
+                    <p>Revolutionizing outdoor adventures with smart, sustainable technology.</p>
+                    <p>By NexStride - Leading the future of outdoor gear.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#specs">Specifications</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">User Manual</a></li>
+                        <li><a href="#">App Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Warranty</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About NexStride</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Investors</a></li>
+                        <li><a href="#">Partnerships</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NexStride. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <p>Patents Pending | Made with sustainable materials</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Temperature control interaction
+        document.querySelector('.temp-control').addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percentage = (x / rect.width) * 100;
+            document.querySelector('.temp-indicator').style.left = percentage + '%';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate metrics on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.metric-card, .feature-card, .problem-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
